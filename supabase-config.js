@@ -233,6 +233,38 @@ async function sbLoadOverlayBySession(sessionId) {
 
     console.log("[Supabase] Successfully loaded session row:", data.id, "session:", sessionId);
 
+    return {
+      id: data.id,
+      session_id: data.session_id,
+      title: data.title || "ESPORTS STANDINGS",
+
+      teams: (data.teams || []).map(t => ({
+        n: t.n || t.name || "",
+        g: t.g || t.games || 0,
+        b: t.b || t.booyah || 0,
+        p: t.p || t.pos || 0,
+        k: t.k || t.kills || 0,
+        t: t.t || t.total || 0
+      })),
+
+      mvp: (data.mvp || []).map(m => ({
+        name: m.name || "",
+        team: m.team || "",
+        kills: m.kills || 0,
+        bestTeamRank: m.bestTeamRank || 999
+      })),
+
+      ts: data.created_at
+        ? new Date(data.created_at).getTime()
+        : Date.now()
+    };
+
+  } catch (err) {
+    console.error("[Supabase] Session load error:", err);
+    return null;
+  }
+}
+
 /**
  * Load the latest active overlay from Supabase across all sessions.
  * @returns {Promise<Object|null>}
