@@ -1,0 +1,181 @@
+/* ==========================
+   ANIMATED CYBER BACKGROUND
+========================== */
+
+.background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, #0f4d1d 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #0b7d35 0%, transparent 35%),
+        linear-gradient(180deg,#051109,#020402);
+    z-index: 0;
+}
+
+/* Animated Aurora */
+.aurora {
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle,#39ff1455 0%,transparent 45%),
+        radial-gradient(circle,#00ff8840 20%,transparent 50%),
+        radial-gradient(circle,#53fc1840 60%,transparent 55%);
+    filter: blur(80px);
+    animation: auroraMove 15s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+    0% { transform: translate(-10%,-5%) scale(1); }
+    100% { transform: translate(10%,5%) scale(1.3); }
+}
+
+/* Green Fog */
+.fog {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(circle,#39ff1415 0%,transparent 60%),
+        radial-gradient(circle,#00ff8815 40%,transparent 70%);
+    filter: blur(120px);
+    animation: fogMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove {
+    0% { transform: translate(-10%,0%); }
+    100% { transform: translate(10%,5%); }
+}
+
+/* Moving Light Streak */
+.streak {
+    position: absolute;
+    width: 350px;
+    height: 180%;
+    top: -30%;
+    background: linear-gradient(to bottom, transparent, rgba(57,255,20,.25), transparent);
+    filter: blur(40px);
+    transform: rotate(25deg);
+    animation: streakMove 8s linear infinite;
+}
+.streak.two {
+    animation-delay: 4s;
+}
+
+@keyframes streakMove {
+    0% { left: -30%; }
+    100% { left: 130%; }
+}
+
+/* Floating Particles */
+.particles-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle,#39ff14 2px,transparent 2px),
+        radial-gradient(circle,#00ff88 2px,transparent 2px);
+    background-size: 120px 120px, 220px 220px;
+    opacity: .35;
+    animation: particleMove 20s linear infinite;
+}
+
+@keyframes particleMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
+}
+
+/* CYBER HEXAGON PATTERN */
+.hex-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: .12;
+}
+.hex-bg::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='104' viewBox='0 0 120 104'%3E%3Cpolygon points='30,2 90,2 118,52 90,102 30,102 2,52' fill='none' stroke='%2339ff14' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-size: 120px 104px;
+    animation: hexMove 30s linear infinite;
+}
+
+@keyframes hexMove {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-180px) translateX(100px); }
+}
+
+/* ENERGY BORDER */
+.energy-frame {
+    position: absolute;
+    inset: 18px;
+    border: 2px solid rgba(57,255,20,.18);
+    overflow: hidden;
+    pointer-events: none;
+}
+.energy-frame::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -35%;
+    width: 35%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #39ff14, #00ff88, transparent);
+    box-shadow: 0 0 20px #39ff14;
+    animation: topRun 3s linear infinite;
+}
+.energy-frame::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    right: -35%;
+    width: 35%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #39ff14, #00ff88, transparent);
+    box-shadow: 0 0 20px #39ff14;
+    animation: bottomRun 3s linear infinite;
+}
+
+@keyframes topRun { 100% { left: 120%; } }
+@keyframes bottomRun { 100% { right: 120%; } }
+
+/* SIDE ENERGY LINES */
+.left-energy, .right-energy {
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(transparent, #39ff14, transparent);
+    filter: blur(1px);
+    opacity: .75;
+}
+.left-energy { left: 18px; animation: leftFlow 4s linear infinite; }
+.right-energy { right: 18px; animation: rightFlow 4s linear infinite; }
+
+@keyframes leftFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 400px; }
+}
+@keyframes rightFlow {
+    0% { background-position: 0 400px; }
+    100% { background-position: 0 0; }
+}
+
+/* CORNER LIGHTS */
+.corner-light {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: .45;
+    animation: cornerGlow 4s ease-in-out infinite alternate;
+}
+.corner-light.tl { top: -70px; left: -70px; background: #39ff14; }
+.corner-light.tr { top: -70px; right: -70px; background: #00ff88; }
+.corner-light.bl { bottom: -70px; left: -70px; background: #00ff66; }
+.corner-light.br { bottom: -70px; right: -70px; background: #39ff14; }
+
+@keyframes cornerGlow {
+    from { transform: scale(.8); opacity: .25; }
+    to { transform: scale(1.3); opacity: .7; }
+}

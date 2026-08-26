@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FF Standings</title>
+  <link rel="stylesheet" href="standings.css">
+  <link rel="stylesheet" href="premium-ui.css">
+  <link rel="stylesheet" href="animated-bg.css">
+</head>
+<body>
+
+<div class="poster">
+  <div class="background">
+    <div class="aurora"></div>
+    <div class="fog"></div>
+    <div class="streak"></div>
+    <div class="streak two"></div>
+    <div class="particles-bg"></div>
+    <div class="hex-bg"></div>
+    <div class="energy-frame"></div>
+    <div class="left-energy"></div>
+    <div class="right-energy"></div>
+    <div class="corner-light tl"></div>
+    <div class="corner-light tr"></div>
+    <div class="corner-light bl"></div>
+    <div class="corner-light br"></div>
+  </div>
+
+  <!-- LEFT vertical text strip — single sentence rotated 90deg -->
+  <!-- <div class="side-text side-text-left">
+    <span>NG ESPORTS &nbsp;&bull;&nbsp; PRESENTS &nbsp;&bull;&nbsp; DOSTI &nbsp;&bull;&nbsp; RIVAL &nbsp;&bull;&nbsp; CUP</span>
+  </div> -->
+
+  <!-- RIGHT vertical text strip — single sentence rotated 90deg -->
+  <!-- <div class="side-text side-text-right">
+    <span>NG ESPORTS &nbsp;&bull;&nbsp; PRESENTS &nbsp;&bull;&nbsp; DOSTI &nbsp;&bull;&nbsp; RIVAL &nbsp;&bull;&nbsp; CUP</span>
+  </div> -->
+
+ <!-- two logos positioned at top‑left like screenshot -->
+<div class="top-logos">
+  
+  <!-- Left Side (2 logos) -->
+  <div class="logo-left">
+    <img src="assets/arena.png" class="small-logo" alt="logo1">
+    <img src="assets/presentedby.png" class="small-logo1" alt="logo2">
+  </div>
+
+  <!-- Center (Asia logo bigger) -->
+  <div class="logo-center">
+    <img src="assets/asia.png" class="center-logo" alt="asia">
+  </div>
+
+  <!-- Right Side (1 logo) -->
+  <!-- <div class="logo-right">
+    <img src="assets/managing-partner.png" class="right-logo" alt="logo3">
+  </div> -->
+
+</div>
+
+<div class="header">
+  <div class="standings-wrapper">
+    <!-- title removed, input becomes focal -->
+    <div class="standings-input">
+      <input type="text" id="userInput" class="user-input" placeholder="Write text here">
+    </div>
+  </div>
+</div>
+
+  <!-- TABLE HEADER -->
+  <div class="table-head">
+    <div class="th-rank">#</div>
+    <div class="th-team">TEAM NAME</div>
+    <div class="th-stat">PLAYED</div>
+    <div class="th-stat">WIN</div>
+    <div class="th-stat">POS.</div>
+    <div class="th-stat">ELIM.</div>
+    <div class="th-stat">TOTAL</div>
+  </div>
+
+  <!-- TABLE -->
+  <div id="tableBody"></div>
+
+  <!-- Buttons fixed at bottom of poster -->
+  <div class="download-wrapper no-export">
+    <button id="uploadMoreBtn" class="upload-btn" onclick="window.location.href='index.html';">
+      Upload More Files
+    </button>
+    <button id="downloadBtn" class="download-btn">Download</button>
+    <button id="resetBtn" class="reset-btn">
+      Reset
+    </button>
+  </div>
+
+  <!-- Footer Strip with Logos -->
+  <div class="footer-strip">
+    <div class="strip-section">
+      <div class="strip-text">
+        <span class="strip-label">POWERED BY</span><br> 
+        <span class="strip-label1">16 ARENA</span>
+      </div>
+      <img src="assets/arena.png" alt="" class="strip-logo1">
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-section">
+      <div class="strip-text">
+        <span class="strip-label">CO-POWERED BY</span><br>
+        <span class="strip-label1">NONSTOP GAMING</span>
+      </div>
+      <img src="assets/nonstop.png" alt="" class="strip-logo">
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-section">
+      <img src="assets/freefire_max.png" alt="Free Fire Max" class="strip-logo-large">
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="script.js"></script>
+<script src="supabase-config.js"></script>
+<script src="overlay-data.js"></script>
+<script src="overlay-buttons.js"></script>
+</body>
+</html>

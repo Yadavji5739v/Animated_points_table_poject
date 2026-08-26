@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Impact, Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* POSTER */
+.poster.horizontal {
+  width: 100vh;
+  height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #0a1f1a 0%, #000000 60%, #051413 100%);
+  overflow: visible;
+}
+.content {
+  width: 1917px;
+  height: 975px;
+  margin: auto;
+  position: relative;
+
+  /* 🔥 ADD THIS */
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform-logo {
+  width: 150px;
+  margin-left: 50px;
+  margin-top: -20px;
+}
+
+
+.ng-logo {
+  width: 150px;
+  margin-left: 50px; 
+  margin-right: -270px;
+  margin-top: -20px;
+}
+
+.asia-logo {
+  width: 400px;
+  margin-left: 800px;
+  margin-top: -90px;
+  background: radial-gradient(circle, rgba(0,0,0,0.7) 10%, transparent 65%);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.8));
+  animation: floatLogo 3s ease-in-out infinite alternate;
+}
+@keyframes floatLogo {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
+}
+
+
+/* .partner-box:first-child {
+  margin-left: 150px;
+}
+.partner-box:last-child {
+  transform: translateX(-165px);
+} */
+.standings-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* 🔥 center contents */
+  justify-content: center;
+  margin: 0 auto;  
+  transform: translateX(-100px);
+  justify-self: center; 
+  gap : 5px;        /* 🔥 center block itself */
+}
+
+
+.standings-box {
+  background: #00FF00;
+  color: #001a00;
+  font-size: 100px;
+  font-weight: : 500;\
+  letter-spacing: 3px;
+  line-height:1.1;
+  padding: 18px 70px;
+  
+  text-transform: uppercase;
+  MARGIN-TOP: 20px;
+}
+
+.standings-underline {
+  margin-top: 18px;
+  width: 380px;
+  height: 70px;
+  background: #00FF00;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.user-input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  font-size: 45px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* TABLES */
+.tables-wrapper {
+  position: relative;
+  /* top: -10px;   🔥 moves table UP */
+}
+
+
+.table-block {
+  flex: 1;
+  width:1000px
+}
+
+/* TABLE HEADER */
+.table-head {
+  display: grid;
+  grid-template-columns: 100px 350px 95px 100px 100px 100px 135px;
+  background: #00FF00;
+  font-size: 30px;
+  height: 70px;
+  text-align: center;
+  font-weight: 200;
+  padding: 10px 0;
+  margin-top: 35px;
+  font-family: "Times New Roman", serif;
+}
+
+/* TABLE HEADER TEXT STYLE */
+.table-head > div {
+  font-size: 35px;      /* 🔥 increase text size */
+  font-weight: 400;    /* 🔥 boldness (700–900) */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #001a00;
+}
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+/* 🔥 BOOYAH ICON SIZE (FORCE) */
+img.booyah {
+  width: 62px !important;   /* increase more if needed */
+  height: auto !important;
+  max-width: none !important;
+}
+
+
+/* ROWS */
+.row {
+  display: grid;
+  grid-template-columns: 100px 350 95px 100px 100px 100px 135px;
+  height: 65px;
+  margin-top: 8px;
+  border-bottom: 4px solid #fff;
+}
+
+.rank,
+.cell {
+  background: #00FF00;
+  color: #001a00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.team {
+  background: linear-gradient(to right, #fff, #3e3939);
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 32px;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+/* First 12 rows: white for the selected columns (team / pos / elims/total alignment depends on layout) */
+.row:nth-child(-n+12) > div:nth-child(2),
+.row:nth-child(-n+12) > div:nth-child(4),
+.row:nth-child(-n+12) > div:nth-child(6) {
+  background: #ffffff;
+  color: #000;
+}
+
+/* Rows after 12: slight shaded black for contrast */
+.row:nth-child(n+13) > div:nth-child(2),
+.row:nth-child(n+13) > div:nth-child(4),
+.row:nth-child(n+13) > div:nth-child(6) {
+  background: #ffffff58;
+  color: #000;
+}
+
+
+
+
+/* FOOTER */
+.partner-strip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    #0a1f1a,
+    #00FF00,
+    #0a1f1a
+  );
+  padding: 0 30px;
+}
+
+.partner-box {
+  display: flex;
+  gap: 14px;
+  color: #fff;
+}
+
+.partner-box span {
+  font-size: 40px;     /* 🔥 bigger & bold */
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+
+.partner-box img {
+  height: 112px;
+}
+
+/* Platform partner larger display */
+.partner-box.platform img {
+  width: auto;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Larger managing partner logo (keeps proportions) */
+.partner-box.managing img {
+  width: auto;
+  height: 120px;
+}
+
+/* BUTTONS */
+.download-wrapper {
+  position: absolute;
+  bottom: 110px;          /* 👈 ABOVE FOOTER */
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+
+
+.tables-wrapper {
+  display: flex;
+  justify-content: center; /* move block to right */
+  gap: 100px;                 /* equal gap between tables */
+  width: 70%;
+  transform: translate(360px);
+}
+
+
+
+.table-block {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+}
+
+#leftTable,
+#rightTable {
+  flex: 1;
+  overflow: hidden;
+}
+.row {
+  height: 72px;               /* 👈 LOCKED */
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+
+
+
+
+.booyah {
+  width: 50px;        /* 🔥 PERFECT SIZE */
+  height: auto;
+  display: block;
+  margin: 0 auto;     /* horizontal center */
+}
+/* Center all cells properly */
+.table-head > div,
+.row > div {
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  display: flex;
+  align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center */
+}
+
+/* Team name left aligned */
+.row > .team {
+  justify-content: flex-start;
+  padding-left: 12px;
+}
+.table-head,
+.row {
+  display: grid;
+  grid-template-columns:
+    80px     /* RANK */
+    400px    /* 🔥 TEAM NAME (REDUCED) */
+    80px     /* BOOYAH */
+    110px     /* GAMES */
+    110px     /* POS */
+    110px     /* ELIMS */
+    130px;   /* TOTAL */
+}
+
+
+
+
+
+
+/* Upload More Button */
+.upload-btn {
+  background: #ffffff;
+  color: #A90F0F;
+  font-weight: 400;
+  font-size: 21px;
+  border: 2px solid #A90F0F;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #A90F0F;
+  color: #ffffff;
+}
+
+
+.download-btn {
+  background: #C6A15A;
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.download-btn:hover {
+  background: #B98F3F;
+}
+
+.reset-btn {
+  background: #ffffff;
+  color: #A90F0F;
+  font-weight: 400;
+  font-size: 21px;
+  border: 2px solid #A90F0F;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background: #c40000;
+  color: #ffffff;
+}
+
+
+
+
+#export-area {
+  width: 1920px;
+  height: 1080px;
+  background: radial-gradient(circle at 50% 0%, #0a1f1a 0%, #000000 60%, #051413 100%);
+  position: relative;
+  overflow: hidden;
+  transform: scale(min(calc(100vw / 1920), calc(100vh / 1080)));
+  transform-origin: center center;
+}

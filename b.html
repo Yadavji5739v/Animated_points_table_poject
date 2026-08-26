@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose View | FF Standings</title>
+  <link rel="stylesheet" href="b.css">
+</head>
+<body>
+
+  <div class="choice-page">
+
+    <div class="choice-card">
+
+      <h1 class="choice-title">POINTS TABLE</h1>
+      <p class="choice-sub">Choose your preferred view</p>
+
+      <div class="choice-buttons">
+
+        <button class="choice-btn horizontal" onclick="window.location.href='ver.html'">
+          <span class="btn-icon">⬛⬛⬛</span>
+          <span class="btn-label">HORIZONTAL VIEW</span>
+          <span class="btn-desc">Wide landscape layout</span>
+        </button>
+
+        <button class="choice-btn vertical" onclick="window.location.href='standings.html'">
+          <span class="btn-icon">▬<br>▬<br>▬</span>
+          <span class="btn-label">VERTICAL VIEW</span>
+          <span class="btn-desc">Tall portrait layout</span>
+        </button>
+
+      </div>
+
+      <div class="overlay-actions" style="margin-top:18px;display:flex;gap:8px;width:100%;">
+        <button id="openLiveBtn" class="choice-btn" style="flex:1;background:linear-gradient(135deg,#b8860b,#daa520);border:2px solid #ffd700;color:#ffd700;box-shadow:0 0 20px rgba(255,215,0,0.3);padding:14px 12px;">
+          <span class="btn-label">📺 Open Link</span>
+        </button>
+        <button id="copyLinkBtn" class="choice-btn" style="flex:1;background:linear-gradient(135deg,#0c4a0d,#1a7a1a);border:2px solid #39ff14;color:#39ff14;padding:14px 12px;">
+          <span class="btn-label">🔗 Copy Link</span>
+        </button>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+      <script src="supabase-config.js"></script>
+      <script src="overlay-data.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const openBtn = document.getElementById("openLiveBtn");
+          const copyBtn = document.getElementById("copyLinkBtn");
+
+          function ensureOverlay() {
+            const result = window.ffGenerateOverlay ? window.ffGenerateOverlay() : null;
+            if (!result) {
+              alert("No standings data found. Upload a match log first.");
+              return null;
+            }
+            return result;
+          }
+
+          function buildShowLink(result) {
+            const base = new URL("show.html", window.location.href);
+            const sessionId = result.session ? result.session.id : (result.payload ? result.payload.id : "");
+            
+            // Clean, short OBS URL: e.g. show.html?session=abc12345
+            if (sessionId) {
+              base.searchParams.set("session", sessionId);
+            }
+            if (result.sbId) {
+              base.searchParams.set("sbid", result.sbId);
+            }
+            // Only add ?d= if neither session nor sbid exists
+            if (!sessionId && !result.sbId && result.payload && typeof ffEncodePayload === "function") {
+              base.searchParams.set("d", ffEncodePayload(result.payload));
+            }
+            return base.href;
+          }
+
+          if (openBtn) {
+            openBtn.onclick = () => {
+              const result = ensureOverlay();
+              if (!result) return;
+              window.open(buildShowLink(result), "_blank");
+            };
+          }
+
+          if (copyBtn) {
+            copyBtn.onclick = () => {
+              const result = ensureOverlay();
+              if (!result) return;
+              const showLink = buildShowLink(result);
+              navigator.clipboard.writeText(showLink).then(() => {
+                alert("Short show link copied!\n\n" + showLink + "\n\nPaste this into OBS Browser Source.");
+              }).catch(() => {
+                prompt("Copy this OBS link:", showLink);
+              });
+            };
+          }
+        });
+      </script>
+
+      <button class="reset-btn" onclick="resetStandings()">
+        Reset Standings
+      </button>
+
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        ← Back to Upload
+      </button>
+
+
+    </div>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

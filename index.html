@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Match Log | FF Standings</title>
+  <link rel="stylesheet" href="upload.css">
+
+  <!-- PASSWORD SCRIPT -->
+  <!-- <script defer src="script.js"></script> -->
+</head>
+<body>
+
+  <div class="upload-page">
+
+    <div class="upload-card">
+      <h1>FREE FIRE STANDINGS</h1>
+      <p class="subtitle">Upload Match Log File</p>
+
+      <label for="logFile" class="file-label">
+        Choose Log File
+      </label>
+
+      <input type="file" id="logFile" accept=".log,.txt" multiple>
+
+      <button onclick="proceed()">PROCEED</button>
+
+      <p class="note">Supported formats: .log, .txt</p>
+
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="overlay-data.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

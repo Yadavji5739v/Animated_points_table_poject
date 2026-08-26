@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FF Points Table</title>
+  <link rel="stylesheet" href="ver.css">
+  <link rel="stylesheet" href="premium-ui.css">
+  <link rel="stylesheet" href="animated-bg.css">
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- Corner accents -->
+  <!-- <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div> -->
+
+  <div class="background">
+    <div class="aurora"></div>
+    <div class="fog"></div>
+    <div class="streak"></div>
+    <div class="streak two"></div>
+    <div class="particles-bg"></div>
+    <div class="hex-bg"></div>
+    <div class="energy-frame"></div>
+    <div class="left-energy"></div>
+    <div class="right-energy"></div>
+    <div class="corner-light tl"></div>
+    <div class="corner-light tr"></div>
+    <div class="corner-light bl"></div>
+    <div class="corner-light br"></div>
+  </div>
+
+  <!-- Top sponsor bar -->
+  <div class="sponsor-bar">
+    <div class="sponsor-left">
+      <img src="assets/arena.png" class="sponsor-logo" alt="">
+    </div>
+    <!-- <div class="sponsor-center">
+      <span class="presented-label">PRESENTED BY</span>
+      <img src="assets/presentedby.png" class="presented-logo" alt="">
+    </div> -->
+    <div class="sponsor-right">
+      <img src="assets/presentedby.png" class="sponsor-logo" alt="">
+    </div>
+  </div>
+
+  <!-- Main header -->
+  <div class="main-header">
+    
+    <div class="header-divider"></div>
+    <div class="header-titles">
+      <input type="text" class="title-esports" value="ESPORTS" placeholder="ESPORTS">
+      <div class="phase-row">
+        <input type="text" class="title-phase" value="PHASE" placeholder="PHASE">
+        <!-- <input type="text" class="title-group" value="GROUP B" placeholder="GROUP B"> -->
+      </div>
+      <img src="assets/asia.png" class="tournament-logo" alt="" width: 20px;>
+    </div>
+  </div>
+
+  <!-- Two-column leaderboard -->
+  <div class="tables-wrapper">
+
+    <div class="table-col">
+      <div class="table-head">
+        <div class="head-spacer"></div>
+        <div>TEAM NAME</div>
+        <div>PLACE</div>
+        <div>KILL</div>
+        <div>TOTAL</div>
+      </div>
+      <div id="verLeftTable"></div>
+    </div>
+
+    <div class="table-col">
+      <div class="table-head">
+        <div class="head-spacer"></div>
+        <div>TEAM NAME</div>
+        <div>PLACE</div>
+        <div>KILL</div>
+        <div>TOTAL</div>
+      </div>
+      <div id="verRightTable"></div>
+    </div>
+
+  </div>
+
+
+    <!-- Footer Strip with Logos -->
+  <div class="footer-strip">
+    <div class="strip-section">
+      <div class="strip-text">
+        <span class="strip-label">POWERED BY</span><br> 
+        <span class="strip-label1">16 ARENA</span>
+      </div>
+      <img src="assets/arena.png" alt="" class="strip-logo1">
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-section">
+      <div class="strip-text">
+        <span class="strip-label">CO-POWERED BY</span><br>
+        <span class="strip-label1">NONSTOP GAMING</span>
+      </div>
+      <img src="assets/nonstop.png" alt="" class="strip-logo">
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-section">
+      <img src="assets/freefire_max.png" alt="Free Fire Max" class="strip-logo-large">
+    </div>
+  </div>
+
+</div>
+
+  <!-- Footer logo -->
+  <img src="assets/platform-partner.png" class="footer-logo" alt="">
+
+</div>
+
+
+<!-- Buttons (outside poster — not included in PNG export) -->
+<div class="download-wrapper no-export">
+  <button class="upload-btn" onclick="window.location.href='index.html';">Upload More Files</button>
+  <button id="downloadBtn" class="download-btn">Download PNG</button>
+  <button id="resetBtn" class="reset-btn">Reset Standings</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

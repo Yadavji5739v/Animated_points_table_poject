@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Impact, Arial, sans-serif;
+}
+
+/* ================= BODY ================= */
+
+body {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ================= POSTER ================= */
+
+.poster {
+  width: 1080px;
+  height: 1350px;
+  padding: 30px;
+  padding-bottom: 120px;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #0a1f1a 0%, #000000 60%, #051413 100%);
+  overflow: hidden;
+  transform: scale(min(calc(100vw / 1080), calc(100vh / 1350)));
+  transform-origin: center center;
+  /* keep side strips inside for html2canvas */
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 150px 0 20px;
+}
+
+/* Left logos container */
+.left-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Small left logos */
+.small-logo {
+  height: 50px;
+  object-fit: contain;
+  margin-left: -10px;
+  margin-top: -12px;
+}
+
+.small-logo1 {
+  height: 100px;
+  object-fit: contain;
+  margin-left: 2px;
+  margin-top: -5px;
+}
+
+.center-logo {
+  height: 450px;
+  object-fit: contain;
+  margin-left: 400px;
+  margin-bottom: 90px;
+  background: radial-gradient(circle, rgba(0,0,0,0.7) 10%, transparent 65%);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.8));
+  animation: floatLogo 3s ease-in-out infinite alternate;
+}
+@keyframes floatLogo {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
+}
+
+/* Right logo */
+.right-logo {
+  height: 150px;
+  object-fit: contain;
+  padding-left: 145px;
+  margin-top: -60px;
+}
+
+/* STANDINGS TITLE */
+.standings-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 120px;
+}
+
+.standings-box {
+  display: none;
+}
+
+.standings-input {
+  margin-top: 10px;
+}
+
+.user-input {
+  width: 800px;
+  padding: 14px 20px;
+  font-size: 64px;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  font-weight: 750;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  margin-top: 110px;
+  position: relative;
+  z-index: 9999;
+}
+
+.user-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* top logos (left-aligned) */
+.top-logos {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.top-logos .header-logo {
+  height: 90px;
+  object-fit: contain;
+}
+
+/* ================= VERTICAL SIDE TEXT STRIPS ================= */
+
+.side-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.side-text span {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(0, 255, 0, 0.8);
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+/* LEFT strip — text reads bottom-to-top (rotated CCW) */
+.side-text-left {
+  left: 4px;
+  /* inside poster — captured by html2canvas */
+  flex-direction: column-reverse;
+  /* so "NG ESPORTS" is at bottom */
+}
+
+.side-text-left span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  /* flip so text reads bottom→top */
+}
+
+/* RIGHT strip — text reads top-to-bottom (rotated CW) */
+.side-text-right {
+  right: 4px;
+  /* inside poster — captured by html2canvas */
+}
+
+.side-text-right span {
+  writing-mode: vertical-rl;
+  transform: rotate(0deg);
+  /* natural top→bottom reading */
+}
+
+/* ================= COLUMN GRID DEFINITION ================= */
+/*
+  Columns: [rank] [team name] [played] [win] [pos] [elim] [total]
+  Rank is a golden square block, rest are stats
+*/
+:root {
+  --col-rank: 72px;
+  --col-team: 1fr;
+  --col-stat: 90px;
+  --col-gap: 6px;
+}
+
+/* ================= TABLE HEADER ================= */
+
+.table-head {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns:
+    var(--col-rank) var(--col-team) var(--col-stat) var(--col-stat) var(--col-stat) var(--col-stat) var(--col-stat);
+  column-gap: var(--col-gap);
+  background: #00FF00;
+  /* solid neon green bar */
+  border-radius: 6px;
+  padding: 0 10px;
+  height: 50px;
+  align-items: center;
+}
+
+/* All header cells */
+.table-head>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #001a00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent;
+}
+
+/* Team name aligns left */
+.table-head .th-team {
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+/* Rank header: no background difference, just centered */
+.table-head .th-rank {
+  font-size: 23px;
+}
+
+/* ================= TABLE BODY ================= */
+
+#tableBody {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ================= ROW ================= */
+
+.row {
+  display: grid;
+  grid-template-columns:
+    var(--col-rank) var(--col-team) var(--col-stat) var(--col-stat) var(--col-stat) var(--col-stat) var(--col-stat);
+  column-gap: var(--col-gap);
+  height: 58px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: transparent;
+  /* row itself is transparent */
+  position: relative;
+}
+
+/* ---- RANK CELL — neon green square ---- */
+.cell-rank {
+  background: #00FF00;
+  color: #001a00;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ---- TEAM NAME CELL — dark teal, left-aligned ---- */
+.cell-team {
+  background: #0a1f1a;
+  color: #00FF00;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  border-radius: 4px;
+  height: 100%;
+}
+
+/* ---- STAT CELLS — played, win, pos, elim, total ---- */
+.cell-stat {
+  background: #0a1f1a;
+  color: #00FF00;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  height: 100%;
+}
+
+/* Alternating shade — even rows slightly darker */
+.row:nth-child(even) .cell-team,
+.row:nth-child(even) .cell-stat {
+  background: #051413;
+}
+
+/* Thin green divider between rows */
+.row::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 255, 0, 0.15);
+}
+
+/* Legacy aliases — kept so other pages (b.html, bg.html) are unaffected */
+.rank {
+  color: #000;
+  font-size: 23px;
+}
+
+.team {
+  color: #00FF00;
+  font-size: 23px;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  letter-spacing: 1px;
+}
+
+.orange-cell {
+  /* no-op for standings.html */
+}
+
+.cell {
+  color: #00FF00;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* ================= BOOYAH ICON ================= */
+
+.booyah {
+  height: 34px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ================= DOWNLOAD / CONTROL BUTTONS ================= */
+
+.download-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;      /* pin to bottom of poster */
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 10px 0;
+}
+
+.upload-btn {
+  background: #ffffff;
+  color: #A90F0F;
+  font-weight: 400;
+  font-size: 21px;
+  border: 2px solid #0B2545;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #A90F0F;
+  color: #ffffff;
+}
+
+.download-btn {
+  background: #00FF00;
+  color: #001a00;
+  border: none;
+  padding: 14px 28px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #0aabb9;
+}
+
+.reset-btn {
+  background: #ffffff;
+  color: #A90F0F;
+  font-weight: 400;
+  font-size: 21px;
+  border: 2px solid #0B2545;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background: #A90F0F;
+  color: #ffffff;
+}
+
+/* ================= MISC ================= */
+
+.booyah-input {
+  width: 50px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  outline: none;
+}
+
+.input-section {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.partner-strip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.partner-strip .partner-box img {
+  height: 80px;
+  object-fit: contain;
+}
+
+/* ================= FOOTER STRIP ================= */
+
+.footer-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  background: linear-gradient(to right, #0c4a0d 0%, #0f5810 50%, #00FF00 100%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 20px;
+  z-index: 50;
+}
+
+.strip-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+  justify-content: flex-start;
+  padding: 0 10px;
+}
+
+.strip-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.strip-section:first-child .strip-label,
+.strip-section:nth-child(2) .strip-label {
+  color: #000000;
+}
+
+.strip-section:nth-child(3) .strip-label {
+  color: #000000;
+}
+
+.strip-label {
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: 2px;
+  color:#000000
+  text-transform: uppercase;
+}
+
+.strip-label1 {
+  font-family: 'Barlow Condensed', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: 2px;
+  margin-top: -15px;
+  text-transform: uppercase;
+}
+
+
+.strip-divider {
+  width: 2px;
+  height: 50px;
+  background: #00FF00;
+  margin: 0 10px;
+}
+
+.strip-logo1 {
+  height: 50px;
+  object-fit: contain;
+}
+
+.strip-logo {
+  height: 65px;
+  object-fit: contain;
+}
+
+.strip-logo-large {
+  height: 70px;
+  object-fit: contain;
+} 

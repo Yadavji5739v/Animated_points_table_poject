@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Overlay | FF Broadcast</title>
+  <link rel="stylesheet" href="live.css">
+  <link rel="stylesheet" href="animated-bg.css">
+</head>
+<body>
+  <div class="poster">
+    <canvas id="particles"></canvas>
+    <!-- Background replaced with CSS gradient -->
+    <div class="background">
+      <div class="aurora"></div>
+      <div class="fog"></div>
+      <div class="streak"></div>
+      <div class="streak two"></div>
+      <div class="particles-bg"></div>
+      <div class="hex-bg"></div>
+      <div class="energy-frame"></div>
+      <div class="left-energy"></div>
+      <div class="right-energy"></div>
+      <div class="corner-light tl"></div>
+      <div class="corner-light tr"></div>
+      <div class="corner-light bl"></div>
+      <div class="corner-light br"></div>
+    </div>
+
+    <div class="sponsor-bar">
+      <div class="sponsor-left">
+        <img src="assets/arena.png" class="sponsor-logo" alt="">
+      </div>
+      <div class="sponsor-right">
+        <img src="assets/presentedby.png" class="sponsor-logo" alt="">
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="header-divider"></div>
+      <div class="header-titles">
+        <div class="title-esports" id="titleMain">ESPORTS</div>
+        <div class="phase-row">
+          <div class="title-phase" id="titlePhase">PHASE</div>
+        </div>
+      </div>
+      <img src="assets/asia.png" class="tournament-logo" alt="">
+    </div>
+
+    <div class="tables-wrapper">
+      <div class="table-col">
+        <div class="table-head">
+          <div class="head-spacer"></div>
+          <div>TEAM NAME</div>
+          <div>PLACE</div>
+          <div>KILL</div>
+          <div>TOTAL</div>
+        </div>
+        <div id="verLeftTable"></div>
+      </div>
+      <div class="table-col">
+        <div class="table-head">
+          <div class="head-spacer"></div>
+          <div>TEAM NAME</div>
+          <div>PLACE</div>
+          <div>KILL</div>
+          <div>TOTAL</div>
+        </div>
+        <div id="verRightTable"></div>
+      </div>
+    </div>
+
+    <!-- <div class="footer-strip">
+      <div class="strip-section">
+        <div class="strip-text">
+          <span class="strip-label">POWERED BY</span><br>
+          <span class="strip-label1">16 ARENA</span>
+        </div>
+        <img src="assets/arena.png" alt="" class="strip-logo">
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-section">
+        <div class="strip-text">
+          <span class="strip-label">CO-POWERED BY</span><br>
+          <span class="strip-label1">NONSTOP GAMING</span>
+        </div>
+        <img src="assets/nonstop.png" alt="" class="strip-logo">
+      </div>
+      <div class="strip-divider"></div>
+      <div class="strip-section">
+        <img src="assets/freefire_max.png" alt="Free Fire Max" class="strip-logo-large">
+      </div>
+    </div> -->
+  </div>
+
+  <div id="championScreen" class="champion-screen">
+    <div class="champion-glow"></div>
+    <canvas id="confetti"></canvas>
+    <div class="champion-trophy">🏆</div>
+    <div class="champion-label">TABLE TOPPERS</div>
+    <div class="champion-team" id="championTeam">TEAM NAME</div>
+  </div>
+
+  <div id="mvpScreen" class="champion-screen mvp-screen">
+    <div class="champion-glow"></div>
+    <div id="mvpContainer" class="scene-container"></div>
+    <div class="mvp-badge">🌟</div>
+    <div class="champion-label">MVP</div>
+    <link rel="stylesheet" href="live.css">
+    <div class="champion-team" id="mvpName">PLAYER / TEAM</div>
+    <div class="champion-sub" id="mvpStats"></div>
+  </div>
+
+  <canvas id="videoCanvas" width="1080" height="1920" style="display:none;"></canvas>
+
+  <!-- <div class="controls no-obs" id="controls">
+    <span class="hint">This bar is hidden automatically for OBS (controls=0 in the copied link)</span>
+  </div> -->
+
+  <!-- hidden navigation buttons for keyboard / remote triggers -->
+  <button id="ffPrevBtn" style="display:none"></button>
+  <button id="ffNextBtn" style="display:none"></button>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="overlay-data.js"></script>
+  <script src="live.js"></script>
+  
+</body>
+</html>

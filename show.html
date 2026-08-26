@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FF Broadcast Show</title>
+  <link rel="stylesheet" href="show.css">
+</head>
+<body>
+
+<!-- Fade overlay for black screen -->
+<div id="fadeOverlay"></div>
+
+<!-- Animated Cyber Background -->
+<div id="animBg">
+  <div class="background">
+    <div class="aurora"></div>
+    <div class="fog"></div>
+    <div class="streak"></div>
+    <div class="streak two"></div>
+    <div class="particles-bg"></div>
+    <div class="hex-bg"></div>
+    <div class="energy-frame"></div>
+    <div class="left-energy"></div>
+    <div class="right-energy"></div>
+    <div class="corner-light tl"></div>
+    <div class="corner-light tr"></div>
+    <div class="corner-light bl"></div>
+    <div class="corner-light br"></div>
+  </div>
+</div>
+
+<!-- HUD Corners -->
+<div class="hud-corner tl" id="hc1"></div>
+<div class="hud-corner tr" id="hc2"></div>
+<div class="hud-corner bl" id="hc3"></div>
+<div class="hud-corner br" id="hc4"></div>
+
+<!-- 1. Boot Screen -->
+<div id="bootScreen">
+  <div class="boot-scan" id="bootScan"></div>
+  <div class="boot-line" id="bl1">[ SYSTEM INITIALIZING... ]</div>
+  <div class="boot-line" id="bl2">[ LOADING HUD MODULES... ]</div>
+  <div class="boot-line" id="bl3">[ CALIBRATING BROADCAST... ]</div>
+  <div class="boot-line" id="bl4">[ READY ]</div>
+  <div class="boot-bar-wrap"><div class="boot-bar" id="bootBarFill"></div></div>
+</div>
+
+<!-- 2. Cyber Doors -->
+<div id="doorsWrap">
+  <div class="door" id="doorLeft"></div>
+  <div class="door door-right" id="doorRight"></div>
+</div>
+<div class="door-seam" id="doorSeam"></div>
+
+<!-- 3. Energy Sweep -->
+<div id="energySweep">
+  <div class="sweep-beam" id="sweepBeam"></div>
+  <div class="sweep-smoke"></div>
+</div>
+
+<!-- 4. Tournament Intro -->
+<div id="tournamentIntro">
+  <!-- Left Side Partner Panel -->
+  <div class="ti-side-panel ti-left-panel">
+    <div class="ti-side-label">POWERED BY</div>
+    <div class="ti-side-logo-wrap">
+      <img src="assets/arena.png" alt="16 Arena" class="ti-side-logo">
+    </div>
+    <!-- <div class="ti-side-text">16 ARENA</div> -->
+  </div>
+
+  <!-- Center Content -->
+  <div class="ti-center">
+    <!-- Top Badge -->
+    <div class="ti-top-logo-wrap">
+      <img src="assets/asia.png" alt="Nonstop Gaming" class="ti-top-logo">
+    </div>
+
+    <!-- Kick Invitational Badge -->
+    <div class="title-content">
+      <div class="title-text">
+        KICK INVITATIONAL PRESENTS
+      </div>
+      
+      <div class="title-underline"></div>
+    </div>
+    <div class="side-line right-line">
+      <span class="diamond"></span>
+    </div>
+    <div class="ti-badge" id="tiBadge"></div>
+    <!-- Main Title -->
+    <div class="ti-title" id="tiTitle">POWERED BY 16 ARENA</div>
+
+    <!-- Subtitle -->
+    <div class="ti-sub" id="tiSub"></div>
+    <div class="copowered-wrapper">
+
+    <div class="copowered-side left"></div>
+
+    <div class="copowered-content">
+        <div class="copowered-text">
+            CO-POWERED BY NON-STOP GAMING
+        </div>
+
+        <div class="copowered-line">
+            <div class="copowered-chevron"></div>
+        </div>
+    </div>
+
+    <div class="copowered-side right"></div>
+
+</div>
+    <!-- Bottom Logo -->
+    <div class="ti-bottom-logo-wrap">
+      PRIZE POOL :- 40,000 INR
+    </div>
+
+    <!-- Social Icons -->
+    <div class="ti-social-icons">
+      <a href="#" class="social-icon insta-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"></path>
+          <circle cx="17.5" cy="6.5" r="1.5"></circle>
+        </svg>
+      </a>
+      <a href="#" class="social-icon youtube-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+        </svg>
+      </a>
+      <a href="#" class="social-icon discord-icon" title="Discord">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.27 10.27 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.076.076 0 0 0-.041.107c.36.699.77 1.364 1.225 1.994a.076.076 0 0 0 .084.028 19.86 19.86 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.786-.838-8.895-3.551-12.566a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.979-2.163 2.157-2.163 1.183 0 2.158.97 2.157 2.163 0 1.19-.974 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.979-2.163 2.157-2.163 1.184 0 2.158.97 2.157 2.163 0 1.19-.973 2.156-2.157 2.156z"></path>
+        </svg>
+      </a>
+      <span class="social-text">/ NONSTOPGAMING</span>
+    </div>
+  </div>
+
+  <!-- Right Side Partner Panel -->
+  <div class="ti-side-panel ti-right-panel">
+    <div class="ti-side-label">CO-POWERED BY</div>
+    <div class="ti-side-logo-wrap">
+      <img src="assets/nonstop.png" alt="Nonstop Gaming" class="ti-side-logo1">
+    </div>
+    <!-- <div class="ti-side-text">NONSTOP GAMING</div> -->
+  </div>
+</div>
+
+<!-- 5. MVP Reveal -->
+<div id="mvpReveal">
+  <div class="mvp-glow-ring" style="width:800px;height:800px;top:50%;left:50%;margin:-400px 0 0 -400px;"></div>
+  <div class="mvp-reveal-title" id="mvpRevealTitle"> MVP LEADERBOARD</div>
+  <div class="mvp-cards-container" id="mvpCardsContainer">
+    <!-- Cards injected by JS -->
+  </div>
+  <div class="mvp-hold-bar">
+    <!-- <div class="mvp-hold-label">PRESS TO CONTINUE</div> -->
+    <!-- <button class="mvp-next-btn" id="mvpNextBtn">WINNER REVEAL →</button> -->
+  </div>
+</div>
+
+<!-- 6. Winner Reveal -->
+<div id="winnerReveal">
+  <div class="winner-bg"></div>
+  <canvas id="winnerCanvas"></canvas>
+  <div class="winner-particles-container" id="winnerParticles"></div>
+  <div class="winner-fire" id="wFire1">🔥</div>
+  <div class="winner-trophy" id="winnerTrophy">🏆</div>
+  <div class="winner-fire" id="wFire2">🔥</div>
+  <div class="winner-label" id="winnerLabel">TABLE TOPPER</div>
+  <div class="winner-team-name" id="winnerTeamName">TEAM NAME</div>
+</div>
+
+<!-- 7. Champion Celebration -->
+<div id="celebration">
+  <div class="celeb-bg"></div>
+  <canvas id="celebCanvas"></canvas>
+  <div class="celeb-banner"></div>
+  <div class="celeb-champ-text">🏆 TABLE TOPPERS 🏆</div>
+  <div class="celeb-trophy">🏆</div>
+  <div class="celeb-team" id="celebTeamName">TEAM NAME</div>
+  <div class="celeb-mvp-badge" id="celebMvpBadge">⭐ MVP: —</div>
+  <div class="celeb-hold-bar">
+    <!-- <button class="celeb-next-btn" id="celebNextBtn">📊 POINTS TABLE →</button> -->
+  </div>
+</div>
+
+<!-- 8. Transition Wipe -->
+<div id="transWipe"><div class="wipe-beam" id="wipeBeam"></div></div>
+
+<!-- 9. Points Table iframe -->
+<div id="pointsTableWrap">
+  <div class="pt-header-bar" id="ptHeader"></div>
+  <iframe id="pointsTableFrame" src="about:blank" title="Points Table" style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
+  <div class="pt-footer-bar" id="ptFooter"></div>
+</div>
+
+  <!-- 10. Power Off -->
+<div id="powerOff"></div>
+
+<!-- Floating Navigation Bar -->
+<div id="showNavBar" class="show-nav-bar">
+  <button id="showPrevNavBtn" class="show-nav-btn">◄ PREV</button>
+  <button id="showNextNavBtn" class="show-nav-btn">NEXT ►</button>
+</div>
+
+<!-- Hidden navigation buttons for keyboard / remote triggers -->
+<button id="ffShowPrevBtn" style="display:none"></button>
+<button id="ffShowNextBtn" style="display:none"></button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="overlay-data.js"></script>
+<script src="show.js"></script>
+</body>
+</html>

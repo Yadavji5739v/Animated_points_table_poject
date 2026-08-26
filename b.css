@@ -1,0 +1,171 @@
+/* ============================================================
+   B.CSS — View Choice Page
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, #0a1f1a, #0d2625, #051413);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* ── CARD ── */
+.choice-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.choice-card {
+  background: rgba(0, 0, 0, 0.75);
+  border: 3px solid #00FF00;
+  border-radius: 16px;
+  padding: 50px 60px;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 40px rgba(0,255,0,0.3);
+}
+
+/* ── TITLE ── */
+.choice-title {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 72px;
+  letter-spacing: 6px;
+  color: #00FF00;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 8px rgba(0,255,0,0.4);
+}
+
+.choice-sub {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+/* ── BUTTONS ROW ── */
+.choice-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  width: 240px;
+  padding: 30px 20px;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s;
+}
+
+/* Horizontal button */
+.choice-btn.horizontal {
+  background: linear-gradient(180deg, #00FF00, #00DD00);
+  border-color: #00FF00;
+  color: #000;
+}
+
+.choice-btn.horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.5);
+}
+
+/* Vertical button */
+.choice-btn.vertical {
+  background: linear-gradient(180deg, #00FF00, #00DD00);
+  border-color: #00FF00;
+  color: #000;
+}
+
+.choice-btn.vertical:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.5);
+}
+
+.btn-icon {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+.btn-label {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+}
+
+.btn-desc {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+/* ── RESET BUTTON ── */
+.reset-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 2px solid #ff5c5c;
+  background: linear-gradient(135deg, rgba(90, 10, 10, 0.95), rgba(170, 28, 28, 0.98));
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 20px rgba(255, 92, 92, 0.28);
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(255, 92, 92, 0.45);
+  border-color: #ff8a8a;
+}
+
+/* ── BACK BUTTON ── */
+.back-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: transparent;
+  color: #aaa;
+  border: 2px solid #555;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.25s;
+  text-transform: uppercase;
+}
+
+.back-btn:hover {
+  border-color: #00FF00;
+  color: #00FF00;
+}

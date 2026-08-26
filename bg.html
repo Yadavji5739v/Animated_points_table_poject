@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FF Standings – Horizontal</title>
+  <link rel="stylesheet" href="bg.css">
+  <link rel="stylesheet" href="premium-ui.css">
+  <link rel="stylesheet" href="animated-bg.css">
+</head>
+<body>
+
+<div class="poster horizontal">
+  <div class="background">
+    <div class="aurora"></div>
+    <div class="fog"></div>
+    <div class="streak"></div>
+    <div class="streak two"></div>
+    <div class="particles-bg"></div>
+    <div class="hex-bg"></div>
+    <div class="energy-frame"></div>
+    <div class="left-energy"></div>
+    <div class="right-energy"></div>
+    <div class="corner-light tl"></div>
+    <div class="corner-light tr"></div>
+    <div class="corner-light bl"></div>
+    <div class="corner-light br"></div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="assets/platform-partner.png" class="platform-logo">
+    <img src="assets/presentedby.png" class="ng-logo">
+    
+    
+    <div class="standings-wrapper">
+  <div class="standings-underline">
+    <input type="text" class="user-input" placeholder="ENTER TITLE">
+    <img src="assets/asia.png" class="asia-logo">
+  </div>
+
+  <div class="standings-box">STANDINGS</div>
+  
+</div>
+
+  </div>
+x
+  <!-- TABLES WRAPPER -->
+  <div class="tables-wrapper">
+
+    <!-- LEFT TABLE -->
+    <div class="table-block">
+      <div class="table-head">
+        <div>RANK</div>
+        <div>TEAM NAME</div>
+        <div><img src="assets/booyah.png" class="booyah"></div>
+        <div>GAMES</div>
+        <div>POS</div>
+        <div>ELIMS</div>
+        <div>TOTAL</div>
+      </div>
+      <div id="leftTable"></div>
+    </div>
+
+    <!-- RIGHT TABLE -->
+    <div class="table-block">
+      <div class="table-head">
+        <div>RANK</div>
+        <div>TEAM NAME</div>
+        <div><img src="assets/booyah.png" class="booyah"></div>
+        <div>GAMES</div>
+        <div>POS</div>
+        <div>ELIMS</div>
+        <div>TOTAL</div>
+      </div>
+      <div id="rightTable"></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <!-- <div class="partner-strip">
+    <div class="partner-box">
+      <span>PRESENTED<br>BY</span>
+      <img src="assets/managing-partner.png">
+    </div>
+    <div class="partner-box">
+      <span>Co. PRESENTED<br>BY</span>
+      <img src="assets/presentedby.png">
+    </div>
+    <div class="partner-box">
+      <span>PLATFORM<br>PARTNER</span>
+      <img src="assets/platform-partner.png">
+    </div>
+  </div> -->
+
+  <!-- BUTTONS -->
+  <div class="download-wrapper no-export">
+    <button id="uploadMoreBtn" class="upload-btn" onclick="window.location.href='index.html';">Upload More Files</button>
+    <button class="upload-btn" onclick="window.location.href='mvp.html';">Open MVP</button>
+    <button id="downloadBtn" class="download-btn">Download PNG</button>
+    <button id="resetBtn" class="reset-btn">Reset Standings</button>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="script.js"></script>
+<script src="supabase-config.js"></script>
+<script src="overlay-data.js"></script>
+<script src="overlay-buttons.js"></script>
+</body>
+</html>
